@@ -83,5 +83,7 @@ pydoc () {
 
 # The hash command must be called to get it to forget past
 # commands. Without forgetting past commands the $PATH changes
-# we made may not be respected
-hash -r 2>/dev/null
+# we made may not be respected. Override a bad return code
+# since this command's result determines the result of
+# this entire script.
+hash -r 2>/dev/null || true
